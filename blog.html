@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Blog Pelvic Funcional | Saúde Pélvica Feminina em Brasília</title>
+  <meta name="description" content="Artigos sobre fisioterapia pélvica escritos por especialistas da Pelvic Funcional em Brasília. Incontinência, endometriose, pós-parto, menopausa e muito mais."/>
+  <meta name="robots" content="index,follow"/>
+  <link rel="canonical" href="https://pelvicfuncional.com.br/blog"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Blog Pelvic Funcional | Saúde Pélvica Feminina"/>
+  <meta property="og:description" content="Conteúdo especializado em saúde pélvica feminina. Artigos escritos por fisioterapeutas especialistas."/>
+  <meta property="og:image" content="https://pelvicfuncional.com.br/wp-content/uploads/2024/10/01.jpeg"/>
+  <link rel="icon" type="image/png" href="https://pelvicfuncional.com.br/wp-content/uploads/2024/04/logo-branco.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      --rosa:#C4788A;--rosa-cl:#E8B4BE;
+      --creme:#F9F3EE;--creme-2:#EFE6DC;
+      --terra:#8C5C4A;--escuro:#1A1208;
+      --texto:#3D2B1F;--br:#FFFFFF;
+      --T:'Cormorant Garamond',Georgia,serif;
+      --B:'DM Sans',sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--B);background:var(--creme);color:var(--texto);overflow-x:hidden}
+    img{display:block;max-width:100%}
+    .w{width:92%;max-width:1160px;margin:0 auto}
+    /* HEADER */
+    header{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 0;transition:background .3s,box-shadow .3s;background:rgba(26,18,8,.92);backdrop-filter:blur(10px)}
+    .hd{display:flex;align-items:center;justify-content:space-between}
+    .logo-img{height:38px;width:auto;filter:brightness(0) invert(1)}
+    nav{display:flex;align-items:center;gap:1.8rem}
+    nav a{font-size:.84rem;font-weight:500;color:rgba(255,255,255,.8);text-decoration:none;transition:color .2s}
+    nav a:hover{color:var(--rosa-cl)}
+    nav a.active{color:var(--rosa-cl)}
+    .nav-cta{background:var(--rosa);color:#fff!important;padding:.5rem 1.3rem;border-radius:50px;font-weight:600}
+    .nav-cta:hover{background:var(--terra)!important}
+    .hbg{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+    .hbg span{display:block;width:24px;height:2px;background:#fff;transition:all .3s}
+    .mnav{display:none;flex-direction:column;position:fixed;top:62px;left:0;right:0;background:rgba(26,18,8,.98);backdrop-filter:blur(14px);padding:.8rem 0 1.2rem;box-shadow:0 8px 28px rgba(0,0,0,.2);z-index:99}
+    .mnav.open{display:flex}
+    .mnav a{padding:.85rem 2rem;font-size:.95rem;color:rgba(255,255,255,.8);text-decoration:none;font-weight:500;border-bottom:1px solid rgba(255,255,255,.08)}
+    .mnav a:last-child{margin:1rem 2rem 0;background:var(--rosa);color:#fff;text-align:center;border-radius:50px;border:none;padding:.8rem}
+    /* HERO */
+    .blog-hero{padding:8rem 0 4rem;background:var(--escuro);position:relative;overflow:hidden}
+    .blog-hero::before{content:'';position:absolute;inset:0;background:url('https://pelvicfuncional.com.br/wp-content/uploads/2024/05/1B0A8871.jpg') center/cover;opacity:.12}
+    .blog-hero-c{position:relative;z-index:1;max-width:680px}
+    .blog-hero .tag{color:var(--rosa-cl);font-size:.65rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;display:block;margin-bottom:.8rem}
+    .blog-hero h1{font-family:var(--T);font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:300;color:#fff;line-height:1.1;margin-bottom:1rem}
+    .blog-hero h1 em{font-style:italic;color:var(--rosa-cl)}
+    .blog-hero p{font-size:1rem;line-height:1.8;color:rgba(255,255,255,.72);max-width:520px}
+    /* SEARCH */
+    .search-bar{padding:2rem 0;background:var(--creme-2);border-bottom:1px solid rgba(196,120,138,.15)}
+    .search-inner{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;justify-content:space-between}
+    .cats{display:flex;gap:.5rem;flex-wrap:wrap}
+    .cat-btn{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.4rem 1rem;border-radius:50px;border:1.5px solid var(--creme-2);background:var(--br);color:var(--texto);cursor:pointer;transition:all .2s}
+    .cat-btn:hover,.cat-btn.active{background:var(--rosa);border-color:var(--rosa);color:#fff}
+    .result-count{font-size:.82rem;color:var(--texto);opacity:.55}
+    /* GRID */
+    .blog-section{padding:4rem 0 6rem}
+    .section-title{font-family:var(--T);font-size:clamp(1.5rem,2.5vw,2rem);font-weight:300;color:var(--escuro);margin-bottom:2rem;padding-bottom:.8rem;border-bottom:1px solid var(--creme-2)}
+    .section-title em{font-style:italic;color:var(--rosa)}
+    .grid-30{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+    .art-card{background:var(--br);border-radius:16px;overflow:hidden;border:1px solid transparent;transition:border-color .2s,transform .2s,box-shadow .2s;display:flex;flex-direction:column;text-decoration:none;color:inherit}
+    .art-card:hover{border-color:var(--rosa-cl);transform:translateY(-3px);box-shadow:0 12px 32px rgba(196,120,138,.1)}
+    .art-thumb{aspect-ratio:16/9;background:var(--creme-2);position:relative;overflow:hidden}
+    .art-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+    .art-card:hover .art-thumb img{transform:scale(1.04)}
+    .art-badge{position:absolute;top:.7rem;left:.7rem;background:var(--rosa);color:#fff;font-size:.58rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.28rem .7rem;border-radius:50px}
+    .art-badge.soon{background:var(--creme-2);color:var(--texto);opacity:.7}
+    .art-body{padding:1.2rem 1.4rem 1.5rem;flex:1;display:flex;flex-direction:column}
+    .art-meta{font-size:.68rem;color:var(--rosa);font-weight:600;letter-spacing:.05em;margin-bottom:.45rem}
+    .art-card h2{font-family:var(--T);font-size:1.1rem;font-weight:600;color:var(--escuro);line-height:1.35;margin-bottom:.4rem}
+    .art-card p{font-size:.8rem;line-height:1.65;color:var(--texto);opacity:.7;flex:1}
+    .art-lk{display:inline-flex;align-items:center;gap:.3rem;margin-top:.9rem;font-size:.76rem;font-weight:600;color:var(--rosa);transition:gap .2s}
+    .art-card:hover .art-lk{gap:.5rem}
+    .art-card.soon-card{opacity:.65;pointer-events:none}
+    .art-card.soon-card .art-lk{color:var(--texto);opacity:.4}
+    /* CTA BANNER */
+    .cta-banner{background:var(--terra);padding:3rem;border-radius:20px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:2rem;margin:2rem 0}
+    .cta-banner h3{font-family:var(--T);font-size:1.7rem;font-weight:300;color:#fff;line-height:1.3}
+    .cta-banner h3 em{font-style:italic}
+    .cta-banner p{font-size:.85rem;color:rgba(255,255,255,.72);margin-top:.4rem}
+    .cta-wpp{display:inline-flex;align-items:center;gap:.55rem;background:#25D366;color:#fff;font-weight:700;font-size:.95rem;padding:.9rem 2rem;border-radius:50px;text-decoration:none;box-shadow:0 6px 20px rgba(37,211,102,.35);white-space:nowrap;transition:transform .2s}
+    .cta-wpp:hover{transform:translateY(-2px)}
+    .cta-wpp svg{width:18px;height:18px;flex-shrink:0}
+    /* FOOTER */
+    footer{background:#0D0802;color:rgba(249,243,238,.5);padding:2.6rem 0 1.8rem}
+    .ft{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2.5rem;padding-bottom:1.7rem;border-bottom:1px solid rgba(255,255,255,.06)}
+    .fb p{font-size:.78rem;line-height:1.7;margin-top:.65rem;max-width:260px}
+    .fc h5{font-size:.67rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--rosa-cl);margin-bottom:.85rem}
+    .fc a{display:block;font-size:.78rem;color:rgba(249,243,238,.5);text-decoration:none;margin-bottom:.5rem;transition:color .2s}
+    .fc a:hover{color:var(--rosa-cl)}
+    .fb2{display:flex;justify-content:space-between;align-items:center;padding-top:1.3rem;font-size:.72rem;flex-wrap:wrap;gap:.8rem}
+    .fb2 a{color:var(--rosa-cl);text-decoration:none}
+    /* FLOAT */
+    .fw{position:fixed;bottom:1.8rem;right:1.8rem;z-index:999;display:flex;align-items:center;gap:.65rem;background:#25D366;color:#fff;font-weight:600;font-size:.8rem;padding:.78rem 1.3rem .78rem .9rem;border-radius:50px;text-decoration:none;box-shadow:0 5px 18px rgba(37,211,102,.36);transition:transform .2s}
+    .fw:hover{transform:scale(1.04)}
+    .fw svg{width:20px;height:20px}
+    @media(max-width:1024px){.grid-30{grid-template-columns:repeat(2,1fr)}.cta-banner{grid-template-columns:1fr}}
+    @media(max-width:768px){
+      nav{display:none}.hbg{display:flex}
+      .grid-30{grid-template-columns:1fr}
+      .ft{grid-template-columns:1fr;gap:1.6rem}
+      .fb2{flex-direction:column;text-align:center}
+      .search-inner{flex-direction:column;align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+<!-- HEADER -->
+<header>
+  <div class="w hd">
+    <a href="pelvic-funcional.html"><img src="https://pelvicfuncional.com.br/wp-content/uploads/2024/04/logo-branco.png" alt="Pelvic Funcional" class="logo-img"/></a>
+    <nav>
+      <a href="pelvic-funcional.html#programas">Programas</a>
+      <a href="pelvic-funcional.html#especialidades">Especialidades</a>
+      <a href="pelvic-funcional.html#planos">Planos</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="pelvic-funcional.html#loc">Localização</a>
+      <a href="https://wa.me/5561981321682?text=Olá!%20Quero%20agendar%20minha%20avaliação." target="_blank" rel="noopener" class="nav-cta">Agendar</a>
+    </nav>
+    <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<nav class="mnav" id="mnav">
+  <a href="pelvic-funcional.html#programas" class="ml">Programas</a>
+  <a href="pelvic-funcional.html#especialidades" class="ml">Especialidades</a>
+  <a href="pelvic-funcional.html#planos" class="ml">Planos de Saúde</a>
+  <a href="blog.html" class="ml">Blog</a>
+  <a href="pelvic-funcional.html#loc" class="ml">Localização</a>
+  <a href="https://wa.me/5561981321682?text=Olá!%20Quero%20agendar%20minha%20avaliação." target="_blank" rel="noopener" class="ml">Agendar pelo WhatsApp</a>
+</nav>
+
+<!-- HERO -->
+<section class="blog-hero">
+  <div class="w">
+    <div class="blog-hero-c">
+      <span class="tag">Conhecimento · Saúde · Cuidado</span>
+      <h1>Blog <em>Pelvic Funcional</em></h1>
+      <p>Artigos escritos pelas nossas fisioterapeutas para ajudar você a entender, prevenir e tratar disfunções pélvicas. Conteúdo clínico de verdade, em linguagem acessível.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FILTROS -->
+<div class="search-bar">
+  <div class="w search-inner">
+    <div class="cats">
+      <button class="cat-btn active">Todos</button>
+      <button class="cat-btn">Bexiga</button>
+      <button class="cat-btn">Pós-Parto</button>
+      <button class="cat-btn">Dor Pélvica</button>
+      <button class="cat-btn">Menopausa</button>
+      <button class="cat-btn">Gestação</button>
+      <button class="cat-btn">Endometriose</button>
+    </div>
+    <span class="result-count">30 artigos publicados</span>
+  </div>
+</div>
+
+<!-- ARTIGOS -->
+<section class="blog-section">
+  <div class="w">
+
+    <h2 class="section-title">Artigos mais <em>recentes</em></h2>
+
+    <div class="grid-30">
+
+      <!-- ARTIGO 30 -->
+      <a href="artigo-30.html" class="art-card">
+        <div class="art-thumb">
+          <img src="https://pelvicfuncional.com.br/wp-content/uploads/2024/05/1B0A8871.jpg" alt="Avaliação pélvica na Pelvic Funcional" loading="lazy"/>
+          <span class="art-badge">Avaliação</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">8 min · Diagnóstico</div>
+          <h2>Avaliação pélvica: como funciona e por que é essencial</h2>
+          <p>Sem avaliação, não existe tratamento eficaz. Entenda o que é avaliado, como funciona a consulta e por que cada paciente tem um protocolo único.</p>
+          <span class="art-lk">Ler artigo →</span>
+        </div>
+      </a>
+
+      <!-- ARTIGO 29 -->
+      <a href="artigo-29.html" class="art-card">
+        <div class="art-thumb">
+          <img src="https://images.pexels.com/photos/3768131/pexels-photo-3768131.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Menopausa e saúde pélvica" loading="lazy"/>
+          <span class="art-badge">Menopausa</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">7 min · Menopausa</div>
+          <h2>Menopausa e saúde pélvica: o que muda e como se preparar</h2>
+          <p>A menopausa traz mudanças profundas no assoalho pélvico. Entenda o que acontece com seu corpo e como a fisioterapia pode ajudar.</p>
+          <span class="art-lk">Ler artigo →</span>
+        </div>
+      </a>
+
+      <!-- ARTIGO 28 -->
+      <a href="artigo-28.html" class="art-card">
+        <div class="art-thumb">
+          <img src="https://images.pexels.com/photos/3076509/pexels-photo-3076509.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Atletas e disfunções pélvicas" loading="lazy"/>
+          <span class="art-badge">Esporte</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">6 min · Performance</div>
+          <h2>Disfunções pélvicas em atletas: o que ninguém fala sobre performance</h2>
+          <p>Atletas de alto rendimento também sofrem com disfunções pélvicas. Perda urinária, queda de performance e lesões são mais comuns do que você imagina.</p>
+          <span class="art-lk">Ler artigo →</span>
+        </div>
+      </a>
+
+      <!-- ARTIGO 27 -->
+      <a href="artigo-27.html" class="art-card">
+        <div class="art-thumb">
+          <img src="https://images.pexels.com/photos/6823569/pexels-photo-6823569.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Exercícios pélvicos sem resultado" loading="lazy"/>
+          <span class="art-badge">Tratamento</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">6 min · Resultado</div>
+          <h2>Por que você não sente melhora mesmo fazendo exercícios pélvicos</h2>
+          <p>Você faz exercícios mas não vê resultado? Pode ser execução errada, diagnóstico incorreto ou tensão onde você esperava fraqueza.</p>
+          <span class="art-lk">Ler artigo →</span>
+        </div>
+      </a>
+
+      <!-- ARTIGO 26 -->
+      <a href="artigo-26.html" class="art-card">
+        <div class="art-thumb">
+          <img src="https://images.pexels.com/photos/5699456/pexels-photo-5699456.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Dor após relação sexual" loading="lazy"/>
+          <span class="art-badge">Dor Pélvica</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">5 min · Saúde Sexual</div>
+          <h2>Dor após relações sexuais: o que seu corpo está tentando dizer</h2>
+          <p>A dor pode não acontecer durante, mas vir depois da relação. Entenda o que causa esse desconforto e quando buscar ajuda especializada.</p>
+          <span class="art-lk">Ler artigo →</span>
+        </div>
+      </a>
+
+      <!-- ARTIGO 25 -->
+      <a href="artigo-25.html" class="art-card">
+        <div class="art-thumb">
+          <img src="https://images.pexels.com/photos/4386464/pexels-photo-4386464.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Retenção urinária" loading="lazy"/>
+          <span class="art-badge">Bexiga</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">5 min · Bexiga</div>
+          <h2>Retenção urinária: dificuldade para urinar também é um problema</h2>
+          <p>Nem sempre o problema é perder urina — às vezes é não conseguir urinar corretamente. Entenda as causas e o tratamento.</p>
+          <span class="art-lk">Ler artigo →</span>
+        </div>
+      </a>
+
+      <!-- ARTIGO 24 -->
+      <a href="artigo-24.html" class="art-card">
+        <div class="art-thumb">
+          <img src="https://images.pexels.com/photos/5473182/pexels-photo-5473182.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Dor lombar e assoalho pélvico" loading="lazy"/>
+          <span class="art-badge">Dor</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">7 min · Coluna & Pelve</div>
+          <h2>Dor lombar pode estar ligada ao assoalho pélvico? Entenda a conexão</h2>
+          <p>Você trata a lombar mas a dor volta? O assoalho pélvico faz parte do sistema de estabilidade do core. Saiba como esses sistemas se relacionam.</p>
+          <span class="art-lk">Ler artigo →</span>
+        </div>
+      </a>
+
+      <!-- ARTIGO 23 -->
+      <a href="artigo-23.html" class="art-card">
+        <div class="art-thumb">
+          <img src="https://images.pexels.com/photos/4506109/pexels-photo-4506109.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Perda de gases involuntária" loading="lazy"/>
+          <span class="art-badge">Assoalho Pélvico</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">4 min · Incontinência</div>
+          <h2>Perda de gases involuntária: um sinal ignorado da saúde pélvica</h2>
+          <p>Pouco falado mas extremamente comum. A perda involuntária de gases indica fraqueza ou descoordenação do assoalho pélvico e tem tratamento.</p>
+          <span class="art-lk">Ler artigo →</span>
+        </div>
+      </a>
+
+      <!-- ARTIGO 22 -->
+      <a href="artigo-22.html" class="art-card">
+        <div class="art-thumb">
+          <img src="https://images.pexels.com/photos/3771069/pexels-photo-3771069.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Nictúria acordar para urinar" loading="lazy"/>
+          <span class="art-badge">Bexiga</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">5 min · Sono & Bexiga</div>
+          <h2>Por que você acorda várias vezes à noite para urinar (nictúria)</h2>
+          <p>Acordar uma vez pode ser normal. Mas várias vezes por noite? Entenda as causas, as consequências e como a fisioterapia pode resolver.</p>
+          <span class="art-lk">Ler artigo →</span>
+        </div>
+      </a>
+
+      <!-- ARTIGO 21 -->
+      <a href="artigo-21.html" class="art-card">
+        <div class="art-thumb">
+          <img src="https://images.pexels.com/photos/5699456/pexels-photo-5699456.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Bexiga hiperativa" loading="lazy"/>
+          <span class="art-badge">Bexiga</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">6 min · Bexiga Hiperativa</div>
+          <h2>Bexiga hiperativa: por que você sente vontade de urinar toda hora</h2>
+          <p>Urgência, frequência aumentada e possíveis perdas — mesmo sem a bexiga estar cheia. Entenda o mecanismo e o tratamento sem medicamentos.</p>
+          <span class="art-lk">Ler artigo →</span>
+        </div>
+      </a>
+
+      <!-- ARTIGOS 1-20 (Em breve) -->
+      <a href="#" class="art-card soon-card">
+        <div class="art-thumb" style="background:var(--creme-2);display:flex;align-items:center;justify-content:center;min-height:160px">
+          <span style="font-family:var(--T);font-size:2rem;color:var(--rosa-cl);opacity:.4">✦</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">Em breve</div>
+          <h2>Cólica menstrual intensa e a fisioterapia pélvica</h2>
+          <p>Por que a dor da cólica vai além do útero e como a fisioterapia pode transformar sua qualidade de vida nos dias de ciclo.</p>
+          <span class="art-lk">Em breve</span>
+        </div>
+      </a>
+
+      <a href="#" class="art-card soon-card">
+        <div class="art-thumb" style="background:var(--creme-2);display:flex;align-items:center;justify-content:center;min-height:160px">
+          <span style="font-family:var(--T);font-size:2rem;color:var(--rosa-cl);opacity:.4">✦</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">Em breve</div>
+          <h2>Dor pélvica crônica: diagnóstico e abordagem integrada</h2>
+          <p>A dor pélvica crônica tem múltiplas causas e exige um olhar amplo. Entenda como fazemos a avaliação integrada na Pelvic Funcional.</p>
+          <span class="art-lk">Em breve</span>
+        </div>
+      </a>
+
+      <a href="#" class="art-card soon-card">
+        <div class="art-thumb" style="background:var(--creme-2);display:flex;align-items:center;justify-content:center;min-height:160px">
+          <span style="font-family:var(--T);font-size:2rem;color:var(--rosa-cl);opacity:.4">✦</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">Em breve</div>
+          <h2>Prolapso uterovaginal: graus, sintomas e tratamento</h2>
+          <p>O prolapso de órgãos pélvicos afeta milhões de mulheres. Saiba como identificar os sintomas e qual o papel da fisioterapia no tratamento.</p>
+          <span class="art-lk">Em breve</span>
+        </div>
+      </a>
+
+      <a href="#" class="art-card soon-card">
+        <div class="art-thumb" style="background:var(--creme-2);display:flex;align-items:center;justify-content:center;min-height:160px">
+          <span style="font-family:var(--T);font-size:2rem;color:var(--rosa-cl);opacity:.4">✦</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">Em breve</div>
+          <h2>Vaginismo: causas, diagnóstico e como tratar</h2>
+          <p>O vaginismo não é "coisa da cabeça". É uma resposta muscular involuntária com tratamento eficaz pela fisioterapia pélvica especializada.</p>
+          <span class="art-lk">Em breve</span>
+        </div>
+      </a>
+
+      <a href="#" class="art-card soon-card">
+        <div class="art-thumb" style="background:var(--creme-2);display:flex;align-items:center;justify-content:center;min-height:160px">
+          <span style="font-family:var(--T);font-size:2rem;color:var(--rosa-cl);opacity:.4">✦</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">Em breve</div>
+          <h2>Diástase abdominal: o que é e como a fisioterapia ajuda</h2>
+          <p>A diástase é a separação dos músculos abdominais, muito comum após a gestação. Entenda como identificar e tratar com segurança.</p>
+          <span class="art-lk">Em breve</span>
+        </div>
+      </a>
+
+      <a href="#" class="art-card soon-card">
+        <div class="art-thumb" style="background:var(--creme-2);display:flex;align-items:center;justify-content:center;min-height:160px">
+          <span style="font-family:var(--T);font-size:2rem;color:var(--rosa-cl);opacity:.4">✦</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">Em breve</div>
+          <h2>Constipação intestinal e assoalho pélvico: qual a relação</h2>
+          <p>A musculatura do assoalho pélvico está diretamente ligada ao funcionamento intestinal. Entenda a conexão e como tratar a raiz do problema.</p>
+          <span class="art-lk">Em breve</span>
+        </div>
+      </a>
+
+      <a href="#" class="art-card soon-card">
+        <div class="art-thumb" style="background:var(--creme-2);display:flex;align-items:center;justify-content:center;min-height:160px">
+          <span style="font-family:var(--T);font-size:2rem;color:var(--rosa-cl);opacity:.4">✦</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">Em breve</div>
+          <h2>Preparação para o parto com fisioterapia pélvica</h2>
+          <p>Como a fisioterapia pélvica prepara o corpo e a mente para um parto mais seguro, consciente e com menos complicações.</p>
+          <span class="art-lk">Em breve</span>
+        </div>
+      </a>
+
+      <a href="#" class="art-card soon-card">
+        <div class="art-thumb" style="background:var(--creme-2);display:flex;align-items:center;justify-content:center;min-height:160px">
+          <span style="font-family:var(--T);font-size:2rem;color:var(--rosa-cl);opacity:.4">✦</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">Em breve</div>
+          <h2>O que é o Método DPSE e como funciona na Pelvic</h2>
+          <p>A metodologia exclusiva da Pelvic Funcional avalia como o sistema nervoso influencia a bexiga, intestino, pelve e musculatura. Entenda.</p>
+          <span class="art-lk">Em breve</span>
+        </div>
+      </a>
+
+      <a href="#" class="art-card soon-card">
+        <div class="art-thumb" style="background:var(--creme-2);display:flex;align-items:center;justify-content:center;min-height:160px">
+          <span style="font-family:var(--T);font-size:2rem;color:var(--rosa-cl);opacity:.4">✦</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">Em breve</div>
+          <h2>Endometriose e fisioterapia pélvica: como alivia a dor</h2>
+          <p>A fisioterapia pélvica atua no alívio da dor crônica da endometriose, melhora da vida sexual e tratamento dos espasmos musculares associados.</p>
+          <span class="art-lk">Em breve</span>
+        </div>
+      </a>
+
+      <a href="#" class="art-card soon-card">
+        <div class="art-thumb" style="background:var(--creme-2);display:flex;align-items:center;justify-content:center;min-height:160px">
+          <span style="font-family:var(--T);font-size:2rem;color:var(--rosa-cl);opacity:.4">✦</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">Em breve</div>
+          <h2>Incontinência urinária de esforço: causas e tratamento</h2>
+          <p>Perder urina ao tossir, espirrar ou pular não é normal — e tem tratamento. Entenda as causas e como a fisioterapia reestabelece o controle.</p>
+          <span class="art-lk">Em breve</span>
+        </div>
+      </a>
+
+      <a href="#" class="art-card soon-card">
+        <div class="art-thumb" style="background:var(--creme-2);display:flex;align-items:center;justify-content:center;min-height:160px">
+          <span style="font-family:var(--T);font-size:2rem;color:var(--rosa-cl);opacity:.4">✦</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">Em breve</div>
+          <h2>Fisioterapia pós-parto: por que é indispensável</h2>
+          <p>O pós-parto é um dos momentos mais críticos para a saúde pélvica. Saiba quando começar, o que esperar e os benefícios do tratamento precoce.</p>
+          <span class="art-lk">Em breve</span>
+        </div>
+      </a>
+
+      <a href="#" class="art-card soon-card">
+        <div class="art-thumb" style="background:var(--creme-2);display:flex;align-items:center;justify-content:center;min-height:160px">
+          <span style="font-family:var(--T);font-size:2rem;color:var(--rosa-cl);opacity:.4">✦</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">Em breve</div>
+          <h2>Fisioterapia pélvica na gestação: quando e por que começar</h2>
+          <p>Iniciar o cuidado pélvico durante a gravidez previne complicações, melhora a qualidade do parto e acelera a recuperação no pós-parto.</p>
+          <span class="art-lk">Em breve</span>
+        </div>
+      </a>
+
+      <a href="#" class="art-card soon-card">
+        <div class="art-thumb" style="background:var(--creme-2);display:flex;align-items:center;justify-content:center;min-height:160px">
+          <span style="font-family:var(--T);font-size:2rem;color:var(--rosa-cl);opacity:.4">✦</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">Em breve</div>
+          <h2>Dispareunia: dor durante a relação sexual tem solução</h2>
+          <p>A dor durante a relação sexual não é normal e não precisa ser tolerada. Entenda as causas e como o tratamento especializado pode ajudar.</p>
+          <span class="art-lk">Em breve</span>
+        </div>
+      </a>
+
+      <a href="#" class="art-card soon-card">
+        <div class="art-thumb" style="background:var(--creme-2);display:flex;align-items:center;justify-content:center;min-height:160px">
+          <span style="font-family:var(--T);font-size:2rem;color:var(--rosa-cl);opacity:.4">✦</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">Em breve</div>
+          <h2>O que é fisioterapia pélvica feminina?</h2>
+          <p>Um guia completo sobre a especialidade que mais cresce na saúde feminina. Entenda o que é, o que trata, como funciona e para quem é indicada.</p>
+          <span class="art-lk">Em breve</span>
+        </div>
+      </a>
+
+      <a href="#" class="art-card soon-card">
+        <div class="art-thumb" style="background:var(--creme-2);display:flex;align-items:center;justify-content:center;min-height:160px">
+          <span style="font-family:var(--T);font-size:2rem;color:var(--rosa-cl);opacity:.4">✦</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">Em breve</div>
+          <h2>Pilates e saúde pélvica: benefícios e cuidados</h2>
+          <p>O pilates individual supervisionado é aliado da saúde pélvica — mas não substitui a fisioterapia especializada. Entenda as diferenças.</p>
+          <span class="art-lk">Em breve</span>
+        </div>
+      </a>
+
+      <a href="#" class="art-card soon-card">
+        <div class="art-thumb" style="background:var(--creme-2);display:flex;align-items:center;justify-content:center;min-height:160px">
+          <span style="font-family:var(--T);font-size:2rem;color:var(--rosa-cl);opacity:.4">✦</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">Em breve</div>
+          <h2>Como saber se tenho disfunção do assoalho pélvico</h2>
+          <p>Dor, perdas, dificuldade de esvaziamento, desconforto sexual — esses sintomas podem indicar uma disfunção pélvica. Conheça os sinais.</p>
+          <span class="art-lk">Em breve</span>
+        </div>
+      </a>
+
+      <a href="#" class="art-card soon-card">
+        <div class="art-thumb" style="background:var(--creme-2);display:flex;align-items:center;justify-content:center;min-height:160px">
+          <span style="font-family:var(--T);font-size:2rem;color:var(--rosa-cl);opacity:.4">✦</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">Em breve</div>
+          <h2>Fisioterapia pélvica é coberta por plano de saúde?</h2>
+          <p>Descubra quais planos de saúde cobrem a fisioterapia pélvica, como funciona o processo de autorização e o que fazer se o plano negar.</p>
+          <span class="art-lk">Em breve</span>
+        </div>
+      </a>
+
+      <a href="#" class="art-card soon-card">
+        <div class="art-thumb" style="background:var(--creme-2);display:flex;align-items:center;justify-content:center;min-height:160px">
+          <span style="font-family:var(--T);font-size:2rem;color:var(--rosa-cl);opacity:.4">✦</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">Em breve</div>
+          <h2>O assoalho pélvico: anatomia, função e disfunções</h2>
+          <p>Entenda o que é o assoalho pélvico, como essa musculatura funciona, por que ela fica disfuncional e como isso impacta sua vida.</p>
+          <span class="art-lk">Em breve</span>
+        </div>
+      </a>
+
+      <a href="#" class="art-card soon-card">
+        <div class="art-thumb" style="background:var(--creme-2);display:flex;align-items:center;justify-content:center;min-height:160px">
+          <span style="font-family:var(--T);font-size:2rem;color:var(--rosa-cl);opacity:.4">✦</span>
+        </div>
+        <div class="art-body">
+          <div class="art-meta">Em breve</div>
+          <h2>Acupuntura no tratamento das disfunções pélvicas</h2>
+          <p>A acupuntura pode ser uma aliada poderosa no tratamento da dor pélvica, tensão muscular e disfunções associadas. Entenda como.</p>
+          <span class="art-lk">Em breve</span>
+        </div>
+      </a>
+
+    </div><!-- /grid -->
+
+    <!-- CTA BANNER -->
+    <div class="cta-banner">
+      <div>
+        <h3>Tem alguma dúvida sobre<br><em>saúde pélvica</em>?</h3>
+        <p>Nossas fisioterapeutas respondem no WhatsApp. Sem custo, sem compromisso.</p>
+      </div>
+      <a href="https://wa.me/5561981321682?text=Olá!%20Li%20o%20blog%20da%20Pelvic%20e%20tenho%20uma%20dúvida." target="_blank" rel="noopener" class="cta-wpp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar com especialista
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="w">
+    <div class="ft">
+      <div class="fb">
+        <img src="https://pelvicfuncional.com.br/wp-content/uploads/2024/04/logo-branco.png" alt="Pelvic Funcional" style="height:38px;width:auto;filter:brightness(0) invert(.7)"/>
+        <p>Fisioterapia pélvica integrada com Método DPSE exclusivo. Mais de 30 mil atendimentos realizados em Brasília – DF.</p>
+      </div>
+      <div class="fc">
+        <h5>Blog</h5>
+        <a href="artigo-21.html">Bexiga Hiperativa</a>
+        <a href="artigo-22.html">Nictúria</a>
+        <a href="artigo-23.html">Perda de Gases</a>
+        <a href="artigo-24.html">Dor Lombar & Pelve</a>
+        <a href="artigo-25.html">Retenção Urinária</a>
+      </div>
+      <div class="fc">
+        <h5>Clínica</h5>
+        <a href="pelvic-funcional.html#programas">Programas</a>
+        <a href="pelvic-funcional.html#especialidades">Especialidades</a>
+        <a href="pelvic-funcional.html#planos">Planos de Saúde</a>
+        <a href="https://wa.me/5561981321682" target="_blank" rel="noopener">(61) 98132-1682</a>
+        <a href="https://www.instagram.com/pelvicfuncional/" target="_blank" rel="noopener">@pelvicfuncional</a>
+      </div>
+    </div>
+    <div class="fb2">
+      <span>© 2025 Pelvic Funcional. Todos os direitos reservados.</span>
+      <span><a href="https://pelvicmen.com.br">Pelvic Men</a> · Brasília – DF</span>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOAT WPP -->
+<a href="https://wa.me/5561981321682?text=Olá!%20Vim%20pelo%20blog%20da%20Pelvic%20Funcional." target="_blank" rel="noopener" class="fw" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  Falar no WhatsApp
+</a>
+<script>
+  const hbg=document.getElementById('hbg'),mn=document.getElementById('mnav');
+  hbg.addEventListener('click',()=>{hbg.classList.toggle('open');mn.classList.toggle('open')});
+  document.querySelectorAll('.ml').forEach(l=>l.addEventListener('click',()=>{mn.classList.remove('open');hbg.classList.remove('open')}));
+  document.querySelectorAll('.cat-btn').forEach(b=>b.addEventListener('click',function(){
+    document.querySelectorAll('.cat-btn').forEach(x=>x.classList.remove('active'));
+    this.classList.add('active');
+  }));
+</script>
+</body>
+</html>
