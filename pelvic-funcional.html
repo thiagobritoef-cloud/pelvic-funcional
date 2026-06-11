@@ -217,10 +217,12 @@
     .men p{color:rgba(249,243,238,.88);font-size:.88rem;line-height:1.7;max-width:480px;margin-top:.65rem}
     .btn-men{flex-shrink:0;border:1.5px solid var(--rosa-cl);color:var(--rosa-cl);font-weight:600;font-size:.86rem;padding:.78rem 1.7rem;border-radius:50px;text-decoration:none;transition:all .2s}
     .btn-men:hover{background:var(--rosa);border-color:var(--rosa);color:#fff}
-    /* ── BLOG ── */
+    /* ── BLOG CAROUSEL ── */
     #blog{padding:5.5rem 0;background:var(--creme)}
-    .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.5rem}
-    .blog-card{background:var(--br);border-radius:20px;overflow:hidden;border:1px solid transparent;transition:border-color .2s,transform .2s,box-shadow .2s;text-decoration:none;color:inherit;display:flex;flex-direction:column}
+    .blog-slider-wrap{position:relative;margin-top:2.5rem}
+    .blog-track-outer{overflow:hidden;border-radius:4px}
+    .blog-track{display:flex;gap:1.4rem;transition:transform .45s cubic-bezier(.4,0,.2,1)}
+    .blog-card{background:var(--br);border-radius:20px;overflow:hidden;border:1px solid transparent;transition:border-color .2s,transform .2s,box-shadow .2s;text-decoration:none;color:inherit;display:flex;flex-direction:column;flex:0 0 calc((100% - 2.8rem) / 3);min-width:0}
     .blog-card:hover{border-color:var(--rosa-cl);transform:translateY(-4px);box-shadow:0 14px 40px rgba(196,120,138,.12)}
     .blog-thumb{aspect-ratio:16/9;overflow:hidden;background:var(--creme-2);position:relative}
     .blog-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
@@ -232,7 +234,17 @@
     .blog-card p{font-size:.82rem;line-height:1.7;color:var(--texto);opacity:.72;flex:1}
     .blog-lk{display:inline-flex;align-items:center;gap:.3rem;margin-top:1rem;font-size:.78rem;font-weight:600;color:var(--rosa);transition:gap .2s}
     .blog-card:hover .blog-lk{gap:.55rem}
-    .blog-ft{text-align:center;margin-top:2.5rem}
+    .blog-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:var(--br);border:1.5px solid var(--creme-2);box-shadow:0 4px 16px rgba(0,0,0,.1);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s,box-shadow .2s;z-index:10}
+    .blog-arrow:hover{background:var(--rosa);border-color:var(--rosa)}
+    .blog-arrow:hover svg{stroke:#fff}
+    .blog-arrow svg{width:18px;height:18px;stroke:var(--rosa);stroke-width:2;fill:none;flex-shrink:0}
+    .blog-arrow.prev{left:-22px}
+    .blog-arrow.next{right:-22px}
+    .blog-arrow:disabled{opacity:.3;cursor:default;pointer-events:none}
+    .blog-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1.5rem}
+    .blog-dot{width:7px;height:7px;border-radius:50%;background:var(--creme-2);border:1.5px solid var(--rosa-cl);cursor:pointer;transition:background .2s,transform .2s}
+    .blog-dot.active{background:var(--rosa);border-color:var(--rosa);transform:scale(1.3)}
+    .blog-ft{text-align:center;margin-top:2rem}
     /* ── FAQ ── */
     #faq{padding:5.5rem 0}
     .fq{max-width:660px;margin:2.5rem auto 0}
@@ -273,11 +285,13 @@
       .cta-strip{grid-template-columns:1fr}
       .gal{grid-template-columns:repeat(2,1fr)}
       .gi:nth-child(n){grid-column:span 1!important;aspect-ratio:4/3!important}
-      .blog-grid{grid-template-columns:repeat(2,1fr)}
+      .blog-card{flex:0 0 calc((100% - 1.4rem) / 2)}
     }
     @media(max-width:768px){
       nav{display:none}.hbg{display:flex}
-      .pg-grid,.cards,.dp,.prova-grid,.loc-grid,.pq,.blog-grid{grid-template-columns:1fr}
+      .pg-grid,.cards,.dp,.prova-grid,.loc-grid,.pq{grid-template-columns:1fr}
+      .blog-card{flex:0 0 100%}
+      .blog-arrow{display:none}
       .steps{grid-template-columns:1fr}
       .step::after{display:none!important}
       .prova-img{max-width:300px;margin:0 auto}
@@ -684,47 +698,63 @@
       <h2>Blog <em>Pelvic Funcional</em></h2>
       <p>Artigos escritos pelas nossas fisioterapeutas para ajudar você a entender melhor sua saúde pélvica.</p>
     </div>
-    <div class="blog-grid">
-      <a href="blog.html" class="blog-card" aria-label="O que é fisioterapia pélvica e para quem é indicada">
-        <div class="blog-thumb">
-          <img src="https://pelvicfuncional.com.br/wp-content/uploads/2024/05/1B0A8871.jpg" alt="Fisioterapia pélvica feminina em Brasília" loading="lazy" width="600" height="338"/>
-          <span class="blog-cat">Saúde Pélvica</span>
+    <div class="blog-slider-wrap">
+      <button class="blog-arrow prev" id="blogPrev" aria-label="Anterior">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="blog-track-outer">
+        <div class="blog-track" id="blogTrack">
+          <a href="artigo-30.html" class="blog-card">
+            <div class="blog-thumb"><img src="https://pelvicfuncional.com.br/wp-content/uploads/2024/05/1B0A8871.jpg" alt="Avaliação pélvica" loading="lazy"/><span class="blog-cat">Avaliação</span></div>
+            <div class="blog-body"><div class="blog-meta">8 min · Diagnóstico</div><h3>Avaliação pélvica: como funciona e por que é essencial</h3><p>Sem avaliação, não existe tratamento eficaz. Cada paciente tem um protocolo único.</p><span class="blog-lk">Ler artigo →</span></div>
+          </a>
+          <a href="artigo-21.html" class="blog-card">
+            <div class="blog-thumb"><img src="https://pelvicfuncional.com.br/wp-content/uploads/2024/10/01.jpeg" alt="Bexiga hiperativa" loading="lazy"/><span class="blog-cat">Bexiga</span></div>
+            <div class="blog-body"><div class="blog-meta">6 min · Bexiga</div><h3>Bexiga hiperativa: por que você sente vontade de urinar toda hora</h3><p>Urgência mesmo sem a bexiga cheia. Entenda o mecanismo e o tratamento sem medicamentos.</p><span class="blog-lk">Ler artigo →</span></div>
+          </a>
+          <a href="artigo-29.html" class="blog-card">
+            <div class="blog-thumb"><img src="https://images.pexels.com/photos/3768131/pexels-photo-3768131.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Menopausa" loading="lazy"/><span class="blog-cat">Menopausa</span></div>
+            <div class="blog-body"><div class="blog-meta">7 min · Menopausa</div><h3>Menopausa e saúde pélvica: o que muda e como se preparar</h3><p>A queda hormonal impacta diretamente o assoalho pélvico. Saiba como atravessar essa fase com qualidade de vida.</p><span class="blog-lk">Ler artigo →</span></div>
+          </a>
+          <a href="artigo-28.html" class="blog-card">
+            <div class="blog-thumb"><img src="https://images.pexels.com/photos/3076509/pexels-photo-3076509.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Atletas" loading="lazy"/><span class="blog-cat">Esporte</span></div>
+            <div class="blog-body"><div class="blog-meta">6 min · Performance</div><h3>Disfunções pélvicas em atletas: o que ninguém fala sobre performance</h3><p>Entre 28% e 80% das atletas têm alguma disfunção pélvica. Descubra como isso afeta sua performance.</p><span class="blog-lk">Ler artigo →</span></div>
+          </a>
+          <a href="artigo-27.html" class="blog-card">
+            <div class="blog-thumb"><img src="https://images.pexels.com/photos/6823569/pexels-photo-6823569.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Exercícios pélvicos" loading="lazy"/><span class="blog-cat">Tratamento</span></div>
+            <div class="blog-body"><div class="blog-meta">6 min · Resultado</div><h3>Por que você não sente melhora fazendo exercícios pélvicos</h3><p>Pode ser execução errada, diagnóstico incorreto ou tensão onde você esperava fraqueza.</p><span class="blog-lk">Ler artigo →</span></div>
+          </a>
+          <a href="artigo-26.html" class="blog-card">
+            <div class="blog-thumb"><img src="https://pelvicfuncional.com.br/wp-content/uploads/2024/10/02-scaled.jpeg" alt="Dor sexual" loading="lazy"/><span class="blog-cat">Saúde Sexual</span></div>
+            <div class="blog-body"><div class="blog-meta">5 min · Sexual</div><h3>Dor após relações sexuais: o que seu corpo está tentando dizer</h3><p>A dor pode surgir horas depois da relação. O corpo está sinalizando um desequilíbrio que tem solução.</p><span class="blog-lk">Ler artigo →</span></div>
+          </a>
+          <a href="artigo-25.html" class="blog-card">
+            <div class="blog-thumb"><img src="https://images.pexels.com/photos/4386464/pexels-photo-4386464.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Retenção urinária" loading="lazy"/><span class="blog-cat">Bexiga</span></div>
+            <div class="blog-body"><div class="blog-meta">5 min · Bexiga</div><h3>Retenção urinária: dificuldade para urinar também é um problema</h3><p>Nem sempre o problema é perder urina. Às vezes é não conseguir urinar corretamente.</p><span class="blog-lk">Ler artigo →</span></div>
+          </a>
+          <a href="artigo-24.html" class="blog-card">
+            <div class="blog-thumb"><img src="https://images.pexels.com/photos/5473182/pexels-photo-5473182.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Dor lombar" loading="lazy"/><span class="blog-cat">Dor</span></div>
+            <div class="blog-body"><div class="blog-meta">7 min · Coluna</div><h3>Dor lombar pode estar ligada ao assoalho pélvico?</h3><p>Você trata a lombar mas a dor volta? O problema pode não estar onde dói.</p><span class="blog-lk">Ler artigo →</span></div>
+          </a>
+          <a href="artigo-23.html" class="blog-card">
+            <div class="blog-thumb"><img src="https://images.pexels.com/photos/4506109/pexels-photo-4506109.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Perda de gases" loading="lazy"/><span class="blog-cat">Assoalho</span></div>
+            <div class="blog-body"><div class="blog-meta">4 min · Incontinência</div><h3>Perda de gases involuntária: um sinal ignorado da saúde pélvica</h3><p>Pouco falado, muito comum. Fraqueza ou descoordenação do assoalho pélvico — e tem tratamento.</p><span class="blog-lk">Ler artigo →</span></div>
+          </a>
+          <a href="artigo-22.html" class="blog-card">
+            <div class="blog-thumb"><img src="https://images.pexels.com/photos/3771069/pexels-photo-3771069.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Nictúria" loading="lazy"/><span class="blog-cat">Bexiga</span></div>
+            <div class="blog-body"><div class="blog-meta">5 min · Sono</div><h3>Por que você acorda várias vezes à noite para urinar</h3><p>Sono fragmentado, fadiga e queda de performance. A nictúria tem solução com fisioterapia pélvica.</p><span class="blog-lk">Ler artigo →</span></div>
+          </a>
         </div>
-        <div class="blog-body">
-          <div class="blog-meta">5 min de leitura · Fisioterapia Pélvica</div>
-          <h3>O que é fisioterapia pélvica e para quem é indicada?</h3>
-          <p>Entenda como a fisioterapia pélvica pode transformar sua qualidade de vida, tratar incontinência, dor pélvica e muito mais.</p>
-          <span class="blog-lk">Ler artigo →</span>
-        </div>
-      </a>
-      <a href="artigo-21.html" class="blog-card" aria-label="Como tratar incontinência urinária sem cirurgia">
-        <div class="blog-thumb">
-          <img src="https://pelvicfuncional.com.br/wp-content/uploads/2024/10/01.jpeg" alt="Tratamento de incontinência urinária em Brasília" loading="lazy" width="600" height="338"/>
-          <span class="blog-cat">Incontinência</span>
-        </div>
-        <div class="blog-body">
-          <div class="blog-meta">7 min de leitura · Incontinência Urinária</div>
-          <h3>Como tratar incontinência urinária sem cirurgia</h3>
-          <p>A perda de urina ao rir, tossir ou espirrar tem tratamento eficaz e sem procedimentos invasivos. Saiba como funciona.</p>
-          <span class="blog-lk">Ler artigo →</span>
-        </div>
-      </a>
-      <a href="artigo-30.html" class="blog-card" aria-label="Fisioterapia pós-parto: quando começar e quais os benefícios">
-        <div class="blog-thumb">
-          <img src="https://pelvicfuncional.com.br/wp-content/uploads/2024/10/02-scaled.jpeg" alt="Reabilitação pós-parto em Brasília" loading="lazy" width="600" height="338"/>
-          <span class="blog-cat">Pós-Parto</span>
-        </div>
-        <div class="blog-body">
-          <div class="blog-meta">6 min de leitura · Pós-Parto</div>
-          <h3>Fisioterapia pós-parto: quando começar e quais os benefícios</h3>
-          <p>Diástase, assoalho pélvico enfraquecido, dor lombar. Veja quando iniciar a reabilitação e o que esperar de cada etapa.</p>
-          <span class="blog-lk">Ler artigo →</span>
-        </div>
-      </a>
+      </div>
+      <button class="blog-arrow next" id="blogNext" aria-label="Próximo">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+      <div class="blog-dots" id="blogDots"></div>
     </div>
     <div class="blog-ft">
+      <a href="blog.html" class="cta-ghost" style="margin-right:.8rem">Ver todos os artigos</a>
       <a href="https://wa.me/5561981321682?text=Olá!%20Quero%20saber%20mais%20sobre%20fisioterapia%20pélvica." target="_blank" rel="noopener" class="cta-sec">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Falar com uma especialista
       </a>
     </div>
@@ -811,8 +841,48 @@
   document.querySelectorAll('.gi[data-src]').forEach(e=>e.addEventListener('click',()=>{lbi.src=e.dataset.src;lb.classList.add('open')}));
   document.getElementById('lb-x').addEventListener('click',()=>lb.classList.remove('open'));
   lb.addEventListener('click',e=>{if(e.target===lb)lb.classList.remove('open')});
-  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.animation='fadeUp .5s ease forwards';io.observe(e.target)}})},{threshold:0.08});
-  document.querySelectorAll('.card,.pq-c,.step,.dc,.gi,.pg-card,.blog-card').forEach(el=>{el.style.opacity='0';io.observe(el)});
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.animation='fadeUp .5s ease forwards';io.unobserve(e.target)}})},{threshold:0.08});
+  document.querySelectorAll('.card,.pq-c,.step,.dc,.gi,.pg-card').forEach(el=>{el.style.opacity='0';io.observe(el)});
+  // ── BLOG CAROUSEL ──
+  (function(){
+    const track=document.getElementById('blogTrack');
+    const cards=track?track.querySelectorAll('.blog-card'):[];
+    const dotsC=document.getElementById('blogDots');
+    const prev=document.getElementById('blogPrev');
+    const next=document.getElementById('blogNext');
+    if(!track||!cards.length)return;
+    let perView=window.innerWidth<768?1:window.innerWidth<1024?2:3;
+    const total=cards.length;
+    let cur=0;
+    const pages=Math.ceil(total/perView);
+    // Build dots
+    for(let i=0;i<pages;i++){
+      const d=document.createElement('button');
+      d.className='blog-dot'+(i===0?' active':'');
+      d.setAttribute('aria-label','Página '+(i+1));
+      d.addEventListener('click',()=>go(i));
+      dotsC.appendChild(d);
+    }
+    function updateDots(){
+      dotsC.querySelectorAll('.blog-dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
+    }
+    function go(page){
+      cur=Math.max(0,Math.min(page,pages-1));
+      const gap=parseFloat(getComputedStyle(track).gap)||22;
+      const cardW=cards[0].getBoundingClientRect().width;
+      track.style.transform='translateX(-'+( cur*(cardW+gap)*perView )+'px)';
+      updateDots();
+      prev.disabled=cur===0;
+      next.disabled=cur===pages-1;
+    }
+    prev.addEventListener('click',()=>go(cur-1));
+    next.addEventListener('click',()=>go(cur+1));
+    prev.disabled=true;
+    window.addEventListener('resize',()=>{
+      const newPer=window.innerWidth<768?1:window.innerWidth<1024?2:3;
+      if(newPer!==perView){perView=newPer;cur=0;go(0);}
+    });
+  })();
 </script>
 </body>
 </html>
