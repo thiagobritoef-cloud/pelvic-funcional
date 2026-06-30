@@ -917,6 +917,124 @@
   .inf-title { font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
   .inf-desc { font-size: 11px; color: var(--mid); line-height: 1.5; }
 
+  /* ══════════════════════════════════════
+     RESPONSIVE — TABLET (≤ 768px)
+  ══════════════════════════════════════ */
+  @media (max-width: 768px) {
+
+    /* Cover */
+    .cover {
+      flex-direction: column;
+      min-height: auto;
+    }
+    .cover-hero-photo {
+      width: 100%;
+      height: 260px;
+      order: -1; /* photo on top */
+    }
+    .cover-hero-photo::before {
+      background: linear-gradient(to bottom, transparent 60%, #1A1A2E 100%);
+    }
+    .cover-inner {
+      padding: 48px 28px 48px;
+      text-align: center;
+    }
+    .cover-logo { margin-bottom: 28px; }
+    .cover-logo svg { width: 200px !important; }
+    .cover-title { font-size: 38px; }
+    .cover-subtitle { font-size: 15px; margin-bottom: 28px; }
+    .cover-hook { padding: 20px 22px; }
+    .cover-hook p { font-size: 14px; }
+    .cover-stats-row {
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .cover-stat-num { font-size: 28px; }
+    .cover-divider { display: none; }
+
+    /* Photo strip */
+    .cover-photo-strip {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .cover-photo-strip img { height: 120px; }
+
+    /* Page sections */
+    .page { padding: 48px 24px; }
+    .numbers-section,
+    .who-section,
+    .differentials-section,
+    .areas-section,
+    .benefits-section,
+    .digital-section,
+    .closing-section,
+    .gallery-section { padding: 56px 24px; }
+
+    /* Page header */
+    .page-header { padding: 16px 24px; }
+
+    /* Section titles */
+    .section-title { font-size: 28px; }
+    .section-lead { font-size: 14px; margin-bottom: 32px; }
+
+    /* Numbers grid: 4→2 cols */
+    .numbers-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .numbers-grid-secondary { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+
+    /* Two-col → single */
+    .two-col { grid-template-columns: 1fr; gap: 32px; }
+
+    /* Differentials: 2→1 col */
+    .diff-grid { grid-template-columns: 1fr; }
+    .diff-card.wide { grid-column: span 1; }
+
+    /* Benefits: 3→1 col */
+    .benefits-grid { grid-template-columns: 1fr; }
+
+    /* Digital cards: 3→1 col */
+    .digital-cards { grid-template-columns: 1fr; gap: 14px; }
+
+    /* Contact grid: 3→1 col */
+    .contact-grid { grid-template-columns: 1fr; gap: 16px; }
+    .contact-block { padding: 32px 24px; }
+    .contact-bottom { flex-direction: column; gap: 8px; text-align: center; }
+
+    /* Gallery: flatten */
+    .gallery-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+    .gallery-grid img { height: 200px; }
+    .gallery-grid img:first-child { grid-row: span 1; }
+
+    /* Photo grid 2 → 1 */
+    .photo-grid-2 { grid-template-columns: 1fr; }
+    .photo-full { height: 220px; border-radius: 14px; }
+
+    /* Infographic: vertical stack */
+    .infographic-row { flex-direction: column; }
+    .infographic-step:not(:last-child)::after { display: none; }
+    .infographic-step { padding: 20px 18px; }
+  }
+
+  /* ══════════════════════════════════════
+     RESPONSIVE — PHONE (≤ 480px)
+  ══════════════════════════════════════ */
+  @media (max-width: 480px) {
+    .cover-title { font-size: 30px; }
+    .cover-subtitle { font-size: 14px; }
+    .cover-hero-photo { height: 200px; }
+
+    .section-title { font-size: 24px; }
+    .numbers-grid { grid-template-columns: 1fr 1fr; }
+    .stat-num { font-size: 30px; }
+    .stat-card { padding: 20px 14px; }
+
+    .contact-block h3 { font-size: 22px; }
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+
 </style>
 </head>
 <body>
