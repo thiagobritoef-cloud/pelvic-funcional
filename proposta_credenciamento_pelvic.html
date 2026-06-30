@@ -33,12 +33,11 @@
   /* ── COVER PAGE ── */
   .cover {
     min-height: 100vh;
-    background: linear-gradient(145deg, #1A1A2E 0%, #2D1B3D 40%, #C43A6B 100%);
+    background: linear-gradient(145deg, #1A1A2E 0%, #2D1B3D 50%, #8B1A42 100%);
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 80px 60px;
+    flex-direction: row;
+    align-items: stretch;
+    padding: 0;
     position: relative;
     overflow: hidden;
     page-break-after: always;
@@ -47,37 +46,58 @@
   .cover::before {
     content: '';
     position: absolute;
-    top: -200px; right: -200px;
+    top: -200px; left: -200px;
     width: 600px; height: 600px;
     border-radius: 50%;
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .cover::after {
-    content: '';
-    position: absolute;
-    bottom: -150px; left: -150px;
-    width: 500px; height: 500px;
-    border-radius: 50%;
-    background: rgba(196,58,107,0.15);
+    z-index: 0;
   }
 
   .cover-inner {
     position: relative;
     z-index: 2;
-    text-align: center;
-    max-width: 700px;
+    text-align: left;
+    flex: 1;
+    padding: 70px 60px 60px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .cover-hero-photo {
+    width: 42%;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover-hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.85) saturate(1.1);
+  }
+
+  .cover-hero-photo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, #1A1A2E 0%, transparent 40%);
+    z-index: 1;
+  }
+
+  .cover-hero-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(26,26,46,0.3) 0%, rgba(196,58,107,0.2) 100%);
+    z-index: 1;
   }
 
   .cover-logo {
-    margin-bottom: 50px;
-  }
-
-  .cover-logo svg {
-    width: 120px;
-    height: auto;
-    filter: brightness(0) invert(1);
+    margin-bottom: 40px;
   }
 
   .cover-eyebrow {
@@ -86,12 +106,12 @@
     letter-spacing: 4px;
     text-transform: uppercase;
     color: rgba(255,255,255,0.5);
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
 
   .cover-title {
     font-family: 'Playfair Display', serif;
-    font-size: 52px;
+    font-size: 56px;
     font-weight: 700;
     color: var(--white);
     line-height: 1.15;
@@ -135,7 +155,7 @@
     display: flex;
     gap: 40px;
     margin-top: 50px;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .cover-stat {
@@ -905,12 +925,12 @@
 <div class="cover">
   <div class="cover-inner">
     <div class="cover-logo">
-      <!-- Pelvic Logo SVG -->
-      <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" style="width:180px;height:auto">
-        <text x="50%" y="38" font-family="Georgia,serif" font-size="36" font-weight="700" fill="white" text-anchor="middle" letter-spacing="8">PELVIC</text>
-        <text x="50%" y="56" font-family="Arial,sans-serif" font-size="9" fill="rgba(255,255,255,0.6)" text-anchor="middle" letter-spacing="2">FISIOCERAPIA PÉLVICA FUNCIONAL</text>
-        <line x1="20" y1="44" x2="62" y2="44" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
-        <line x1="138" y1="44" x2="180" y2="44" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+      <!-- Pelvic Logo -->
+      <svg viewBox="0 0 340 90" xmlns="http://www.w3.org/2000/svg" style="width:280px;height:auto">
+        <text x="50%" y="52" font-family="Georgia,serif" font-size="54" font-weight="700" fill="white" text-anchor="middle" letter-spacing="10">PELVIC</text>
+        <line x1="10" y1="62" x2="115" y2="62" stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+        <line x1="225" y1="62" x2="330" y2="62" stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+        <text x="50%" y="78" font-family="Arial,sans-serif" font-size="11" fill="rgba(255,255,255,0.65)" text-anchor="middle" letter-spacing="3.5">FISIOTERAPIA PÉLVICA FUNCIONAL</text>
       </svg>
     </div>
 
@@ -960,6 +980,9 @@
       <img src="https://thiagobritoef-cloud.github.io/pelvic-funcional/consultorio.jpg" alt="Consultório">
       <img src="https://thiagobritoef-cloud.github.io/pelvic-funcional/Kids.jpg" alt="Espaço Kids">
     </div>
+  </div>
+  <div class="cover-hero-photo">
+    <img src="https://thiagobritoef-cloud.github.io/pelvic-funcional/recepcao.jpg" alt="Clínica Pelvic Funcional">
   </div>
 </div>
 
