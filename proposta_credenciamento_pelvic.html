@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposta de Credenciamento — Pelvic Funcional</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --rose: #C43A6B;
+    --rose-light: #E8688A;
+    --rose-pale: #FDF0F4;
+    --rose-ultra-pale: #FEF8FA;
+    --dark: #1A1A2E;
+    --mid: #4A4A6A;
+    --light-text: #7A7A9A;
+    --border: #F0D6E0;
+    --white: #FFFFFF;
+    --off-white: #FAFAFA;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--dark);
+    background: var(--white);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* ── COVER PAGE ── */
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(145deg, #1A1A2E 0%, #2D1B3D 40%, #C43A6B 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 60px;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -150px; left: -150px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: rgba(196,58,107,0.15);
+  }
+
+  .cover-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 700px;
+  }
+
+  .cover-logo {
+    margin-bottom: 50px;
+  }
+
+  .cover-logo svg {
+    width: 120px;
+    height: auto;
+    filter: brightness(0) invert(1);
+  }
+
+  .cover-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 20px;
+  }
+
+  .cover-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 24px;
+  }
+
+  .cover-title span {
+    color: #F5A0B5;
+  }
+
+  .cover-subtitle {
+    font-size: 17px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.6;
+    margin-bottom: 50px;
+    font-weight: 300;
+  }
+
+  .cover-hook {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 16px;
+    padding: 28px 36px;
+    backdrop-filter: blur(10px);
+  }
+
+  .cover-hook p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.9);
+    font-style: italic;
+    line-height: 1.7;
+  }
+
+  .cover-hook strong {
+    color: #F5A0B5;
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  .cover-stats-row {
+    display: flex;
+    gap: 40px;
+    margin-top: 50px;
+    justify-content: center;
+  }
+
+  .cover-stat {
+    text-align: center;
+  }
+
+  .cover-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .cover-stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 6px;
+  }
+
+  .cover-divider {
+    width: 1px;
+    background: rgba(255,255,255,0.2);
+    align-self: stretch;
+  }
+
+  /* ── PAGE WRAPPER ── */
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 70px 60px;
+  }
+
+  /* ── SECTION LABELS ── */
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 14px;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--rose);
+    border-radius: 2px;
+  }
+
+  /* ── SECTION TITLE ── */
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.25;
+    margin-bottom: 20px;
+  }
+
+  .section-title span {
+    color: var(--rose);
+  }
+
+  .section-lead {
+    font-size: 16px;
+    color: var(--mid);
+    line-height: 1.8;
+    max-width: 680px;
+    margin-bottom: 50px;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 60px 0;
+  }
+
+  /* ── NUMBERS SECTION ── */
+  .numbers-section {
+    background: linear-gradient(135deg, #1A1A2E 0%, #2D1B3D 100%);
+    padding: 80px 60px;
+    page-break-before: always;
+  }
+
+  .numbers-section .section-label {
+    color: #F5A0B5;
+  }
+
+  .numbers-section .section-label::before {
+    background: #F5A0B5;
+  }
+
+  .numbers-section .section-title {
+    color: var(--white);
+  }
+
+  .numbers-section .section-title span {
+    color: #F5A0B5;
+  }
+
+  .numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .numbers-grid-secondary {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+
+  .stat-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 28px 20px;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+
+  .stat-card.highlight {
+    background: rgba(196,58,107,0.25);
+    border-color: rgba(196,58,107,0.5);
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-num.pink { color: #F5A0B5; }
+
+  .stat-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.4;
+  }
+
+  .stat-card-sm {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+  }
+
+  .stat-sm-icon {
+    font-size: 20px;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .stat-sm-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.4;
+  }
+
+  /* ── WHO WE ARE ── */
+  .who-section {
+    padding: 80px 60px;
+    background: var(--white);
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .body-text {
+    font-size: 15px;
+    color: var(--mid);
+    line-height: 1.85;
+    margin-bottom: 20px;
+  }
+
+  .body-text strong {
+    color: var(--dark);
+    font-weight: 600;
+  }
+
+  .highlight-box {
+    background: var(--rose-pale);
+    border-left: 4px solid var(--rose);
+    border-radius: 0 12px 12px 0;
+    padding: 24px 28px;
+    margin: 30px 0;
+  }
+
+  .highlight-box p {
+    font-size: 16px;
+    color: var(--dark);
+    font-style: italic;
+    line-height: 1.7;
+  }
+
+  .highlight-box strong {
+    color: var(--rose);
+    font-style: normal;
+  }
+
+  /* ── MISSION CARD ── */
+  .mission-card {
+    background: linear-gradient(135deg, var(--rose) 0%, #8B1A45 100%);
+    border-radius: 20px;
+    padding: 40px 36px;
+    color: white;
+  }
+
+  .mission-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: white;
+  }
+
+  .mission-card p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .mission-card .since {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .since-year {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.3);
+    line-height: 1;
+  }
+
+  .since-text {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+  }
+
+  /* ── DIFFERENTIALS ── */
+  .differentials-section {
+    padding: 80px 60px;
+    background: var(--off-white);
+    page-break-before: always;
+  }
+
+  .diff-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .diff-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 36px 32px;
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .diff-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--rose) 0%, var(--rose-light) 100%);
+  }
+
+  .diff-card.wide {
+    grid-column: span 2;
+  }
+
+  .diff-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--rose-pale);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+
+  .diff-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 12px;
+  }
+
+  .diff-card p {
+    font-size: 14px;
+    color: var(--mid);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  .diff-bullets {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .diff-bullets li {
+    background: var(--rose-pale);
+    color: var(--rose);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(196,58,107,0.15);
+  }
+
+  /* ── AREAS ── */
+  .areas-section {
+    padding: 80px 60px;
+    background: var(--white);
+  }
+
+  .areas-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .area-tag {
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: default;
+    transition: all 0.2s;
+  }
+
+  .area-tag.primary {
+    background: var(--rose);
+    color: white;
+  }
+
+  .area-tag.secondary {
+    background: var(--rose-pale);
+    color: var(--rose);
+    border: 1px solid rgba(196,58,107,0.2);
+  }
+
+  .area-tag.tertiary {
+    background: var(--off-white);
+    color: var(--mid);
+    border: 1px solid var(--border);
+  }
+
+  /* ── BENEFITS SECTION ── */
+  .benefits-section {
+    padding: 80px 60px;
+    background: linear-gradient(135deg, #1A1A2E 0%, #2D1B3D 100%);
+    page-break-before: always;
+  }
+
+  .benefits-section .section-label { color: #F5A0B5; }
+  .benefits-section .section-label::before { background: #F5A0B5; }
+  .benefits-section .section-title { color: white; }
+  .benefits-section .section-lead { color: rgba(255,255,255,0.7); }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .benefit-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 18px;
+    padding: 30px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .benefit-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--rose) 0%, var(--rose-light) 100%);
+  }
+
+  .benefit-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.06);
+    position: absolute;
+    top: 12px; right: 16px;
+    line-height: 1;
+  }
+
+  .benefit-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(196,58,107,0.25);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .benefit-card h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .benefit-card p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+  }
+
+  /* ── DIGITAL PRESENCE ── */
+  .digital-section {
+    padding: 80px 60px;
+    background: var(--rose-ultra-pale);
+  }
+
+  .digital-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .digital-card {
+    background: white;
+    border-radius: 18px;
+    padding: 32px 24px;
+    text-align: center;
+    border: 1px solid var(--border);
+  }
+
+  .digital-card .d-icon {
+    font-size: 32px;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .digital-card h4 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--rose);
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 6px;
+  }
+
+  .digital-card p {
+    font-size: 13px;
+    color: var(--light-text);
+    line-height: 1.6;
+  }
+
+  .google-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 10px;
+  }
+
+  .star { color: #FFC107; font-size: 16px; }
+
+  /* ── CLOSING ── */
+  .closing-section {
+    padding: 80px 60px;
+    background: white;
+  }
+
+  .closing-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .closing-inner .section-label {
+    justify-content: center;
+  }
+
+  .closing-inner .section-label::before { display: none; }
+  .closing-inner .section-label::after {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--rose);
+    border-radius: 2px;
+  }
+
+  .closing-text {
+    font-size: 16px;
+    color: var(--mid);
+    line-height: 1.8;
+    margin-bottom: 50px;
+  }
+
+  .contact-block {
+    background: linear-gradient(135deg, var(--rose) 0%, #8B1A45 100%);
+    border-radius: 24px;
+    padding: 50px 50px;
+    color: white;
+  }
+
+  .contact-block h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+
+  .contact-block .rep-title {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 30px;
+  }
+
+  .contact-item {
+    text-align: left;
+  }
+
+  .contact-item .c-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 6px;
+  }
+
+  .contact-item .c-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+  }
+
+  .contact-divider {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    margin: 24px 0;
+  }
+
+  .contact-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .contact-bottom .city {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .contact-bottom .year {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ── HEADER BAR (repeat on each section) ── */
+  .page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 60px;
+    border-bottom: 1px solid var(--border);
+    background: white;
+  }
+
+  .page-header-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--rose);
+    letter-spacing: 2px;
+  }
+
+  .page-header-sub {
+    font-size: 11px;
+    color: var(--light-text);
+    letter-spacing: 1px;
+  }
+
+  /* ── PHOTO ELEMENTS ── */
+  .cover-photo-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 40px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cover-photo-strip img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    opacity: 0.75;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .photo-full {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+    margin-bottom: 30px;
+  }
+
+  .photo-half {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
+  }
+
+  .diff-card-photo {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 18px;
+    display: block;
+  }
+
+  .photo-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .photo-grid-2 img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+  }
+
+  .gallery-section {
+    padding: 80px 60px;
+    background: var(--off-white);
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 220px 220px;
+    gap: 12px;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .gallery-grid img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .gallery-grid img:first-child {
+    grid-row: span 2;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    .cover, .numbers-section, .differentials-section,
+    .benefits-section, .who-section, .areas-section,
+    .digital-section, .closing-section {
+      page-break-inside: avoid;
+    }
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    a { text-decoration: none; color: inherit; }
+  }
+
+  /* INFOGRAPHIC ROW */
+  .infographic-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 40px 0;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .infographic-step {
+    flex: 1;
+    padding: 28px 24px;
+    text-align: center;
+    position: relative;
+  }
+
+  .infographic-step:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: var(--rose);
+    z-index: 2;
+  }
+
+  .infographic-step:nth-child(odd) { background: var(--rose-pale); }
+  .infographic-step:nth-child(even) { background: white; }
+
+  .inf-icon { font-size: 28px; margin-bottom: 10px; display: block; }
+  .inf-title { font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .inf-desc { font-size: 11px; color: var(--mid); line-height: 1.5; }
+
+</style>
+</head>
+<body>
+
+<!-- ══════════════ COVER ══════════════ -->
+<div class="cover">
+  <div class="cover-inner">
+    <div class="cover-logo">
+      <!-- Pelvic Logo SVG -->
+      <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" style="width:180px;height:auto">
+        <text x="50%" y="38" font-family="Georgia,serif" font-size="36" font-weight="700" fill="white" text-anchor="middle" letter-spacing="8">PELVIC</text>
+        <text x="50%" y="56" font-family="Arial,sans-serif" font-size="9" fill="rgba(255,255,255,0.6)" text-anchor="middle" letter-spacing="2">FISIOCERAPIA PÉLVICA FUNCIONAL</text>
+        <line x1="20" y1="44" x2="62" y2="44" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+        <line x1="138" y1="44" x2="180" y2="44" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+      </svg>
+    </div>
+
+    <div class="cover-eyebrow">Proposta de Credenciamento e Parceria Estratégica</div>
+
+    <h1 class="cover-title">
+      Referência em<br><span>Saúde Pélvica</span><br>no Distrito Federal
+    </h1>
+
+    <p class="cover-subtitle">
+      Antes de avaliar mais uma solicitação de credenciamento,<br>
+      permita-nos compartilhar um dado simples.
+    </p>
+
+    <div class="cover-hook">
+      <p>
+        <strong>Mais de 1.000 pacientes</strong> já confiaram sua reabilitação à Pelvic Funcional,
+        gerando mais de <strong>40.000 atendimentos especializados</strong> em saúde pélvica desde 2019.
+        Esse volume de experiência nos permitiu identificar — e resolver — o principal desafio da saúde suplementar nessa área.
+      </p>
+    </div>
+
+    <div class="cover-stats-row">
+      <div class="cover-stat">
+        <div class="cover-stat-num">+40k</div>
+        <div class="cover-stat-label">Atendimentos</div>
+      </div>
+      <div class="cover-divider"></div>
+      <div class="cover-stat">
+        <div class="cover-stat-num">+1.000</div>
+        <div class="cover-stat-label">Pacientes</div>
+      </div>
+      <div class="cover-divider"></div>
+      <div class="cover-stat">
+        <div class="cover-stat-num">18</div>
+        <div class="cover-stat-label">Especialistas</div>
+      </div>
+      <div class="cover-divider"></div>
+      <div class="cover-stat">
+        <div class="cover-stat-num">5,0 ★</div>
+        <div class="cover-stat-label">Google</div>
+      </div>
+    </div>
+
+    <div class="cover-photo-strip">
+      <img src="https://thiagobritoef-cloud.github.io/pelvic-funcional/recepcao.jpg" alt="Recepção Pelvic Funcional">
+      <img src="https://thiagobritoef-cloud.github.io/pelvic-funcional/consultorio.jpg" alt="Consultório">
+      <img src="https://thiagobritoef-cloud.github.io/pelvic-funcional/Kids.jpg" alt="Espaço Kids">
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ NUMBERS ══════════════ -->
+<div class="numbers-section">
+  <div style="max-width:780px; margin:0 auto;">
+    <div class="section-label">Pelvic Funcional em Números</div>
+    <h2 class="section-title" style="color:white;">Uma estrutura feita para <span>impressionar</span></h2>
+
+    <div class="numbers-grid">
+      <div class="stat-card highlight">
+        <div class="stat-num pink">+40.000</div>
+        <div class="stat-label">Atendimentos realizados desde 2019</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">+1.000</div>
+        <div class="stat-label">Pacientes atendidos</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num pink">18</div>
+        <div class="stat-label">Fisioterapeutas especialistas</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">10</div>
+        <div class="stat-label">Salas de atendimento</div>
+      </div>
+    </div>
+
+    <div class="numbers-grid-secondary">
+      <div class="stat-card-sm">
+        <span class="stat-sm-icon">🏥</span>
+        <div class="stat-sm-label">2 Unidades<br>Especializadas</div>
+      </div>
+      <div class="stat-card-sm">
+        <span class="stat-sm-icon">⭐</span>
+        <div class="stat-sm-label">Nota 5,0<br>no Google</div>
+      </div>
+      <div class="stat-card-sm">
+        <span class="stat-sm-icon">💬</span>
+        <div class="stat-sm-label">+200 avaliações<br>no Google</div>
+      </div>
+      <div class="stat-card-sm">
+        <span class="stat-sm-icon">📱</span>
+        <div class="stat-sm-label">+15.800<br>seguidores</div>
+      </div>
+      <div class="stat-card-sm">
+        <span class="stat-sm-icon">🎖️</span>
+        <div class="stat-sm-label">Referência em saúde<br>pélvica no DF</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ QUEM SOMOS ══════════════ -->
+<div class="page-header">
+  <div class="page-header-logo">PELVIC</div>
+  <div class="page-header-sub">Proposta de Credenciamento · 2026</div>
+</div>
+
+<div class="who-section">
+  <div style="max-width:780px; margin:0 auto;">
+    <div class="section-label">Quem Somos</div>
+    <h2 class="section-title">Mais do que uma clínica.<br>Uma <span>referência</span>.</h2>
+
+    <img src="https://pelvicfuncional.com.br/01.jpeg" alt="Pelvic Funcional" class="photo-full">
+
+    <div class="two-col">
+      <div>
+        <p class="body-text">
+          A <strong>Pelvic Funcional</strong> é um centro especializado em fisioterapia pélvica feminina e masculina,
+          atuando exclusivamente na prevenção, avaliação e reabilitação das disfunções do assoalho pélvico.
+        </p>
+        <p class="body-text">
+          Nossa missão é oferecer tratamentos baseados em <strong>evidências científicas</strong>, associados à
+          humanização, inovação e acompanhamento individualizado.
+        </p>
+        <p class="body-text">
+          Desde 2019, construímos uma reputação sólida por meio da excelência clínica, da qualificação
+          contínua de nossa equipe e da busca constante por resultados funcionais duradouros.
+        </p>
+
+        <div class="highlight-box">
+          <p>
+            Pacientes permanecem meses em tratamento, muitas vezes sem uma abordagem verdadeiramente
+            especializada — aumentando o tempo de recuperação, a recorrência dos sintomas e
+            <strong>o custo assistencial</strong>. A Pelvic Funcional foi criada para oferecer uma alternativa a esse cenário.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <div class="mission-card">
+          <h3>Nossa Missão</h3>
+          <p>
+            Oferecer tratamentos baseados em evidências científicas, associados à humanização,
+            inovação e acompanhamento individualizado — transformando a experiência do paciente
+            e gerando resultados concretos e duradouros.
+          </p>
+          <div class="since">
+            <div class="since-year">2019</div>
+            <div class="since-text">Desde nossa fundação, construindo<br>excelência em saúde pélvica no DF</div>
+          </div>
+        </div>
+
+        <div style="margin-top:20px; background:var(--rose-pale); border-radius:16px; padding:24px 28px;">
+          <div style="font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--rose); margin-bottom:14px;">Nossa Estrutura</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+            <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--mid);">
+              <span style="color:var(--rose); font-weight:700;">✓</span> 2 unidades especializadas
+            </div>
+            <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--mid);">
+              <span style="color:var(--rose); font-weight:700;">✓</span> Unidade feminina exclusiva
+            </div>
+            <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--mid);">
+              <span style="color:var(--rose); font-weight:700;">✓</span> Unidade masculina exclusiva
+            </div>
+            <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--mid);">
+              <span style="color:var(--rose); font-weight:700;">✓</span> 10 salas de atendimento
+            </div>
+            <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--mid);">
+              <span style="color:var(--rose); font-weight:700;">✓</span> Sala funcional exclusiva
+            </div>
+            <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--mid);">
+              <span style="color:var(--rose); font-weight:700;">✓</span> Sala de acupuntura
+            </div>
+            <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--mid);">
+              <span style="color:var(--rose); font-weight:700;">✓</span> Espaço Kids
+            </div>
+            <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--mid);">
+              <span style="color:var(--rose); font-weight:700;">✓</span> 18 especialistas
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ DIFERENCIAIS ══════════════ -->
+<div class="differentials-section">
+  <div style="max-width:780px; margin:0 auto;">
+    <div class="section-label">Diferenciais</div>
+    <h2 class="section-title">O que nos torna <span>únicos</span></h2>
+    <p class="section-lead">
+      Nossa estrutura foi desenhada para gerar impacto direto na experiência do beneficiário
+      — e nos resultados da operadora.
+    </p>
+
+    <div class="diff-grid">
+
+      <div class="diff-card">
+        <img src="https://thiagobritoef-cloud.github.io/pelvic-funcional/consultorio.jpg" alt="Consultório Pelvic" class="diff-card-photo">
+        <div class="diff-icon">♀</div>
+        <h3>Unidades Exclusivas Feminina e Masculina</h3>
+        <p>
+          Ambientes distintos para cada público proporcionam uma experiência única de conforto,
+          privacidade e acolhimento — fatores que impactam diretamente na adesão ao tratamento.
+        </p>
+        <ul class="diff-bullets">
+          <li>Mais conforto</li>
+          <li>Mais privacidade</li>
+          <li>Maior acolhimento</li>
+          <li>Maior adesão</li>
+        </ul>
+      </div>
+
+      <div class="diff-card">
+        <div class="diff-icon">🎓</div>
+        <h3>Corpo Clínico 100% Especializado</h3>
+        <p>
+          Todos os 18 profissionais possuem formação específica em fisioterapia pélvica. Ao contrário
+          de modelos generalistas, nossa equipe atua exclusivamente nessa área, permitindo maior precisão
+          diagnóstica e condutas terapêuticas mais assertivas.
+        </p>
+        <ul class="diff-bullets">
+          <li>18 especialistas</li>
+          <li>Foco exclusivo</li>
+          <li>Precisão diagnóstica</li>
+        </ul>
+      </div>
+
+      <div class="diff-card">
+        <div class="diff-icon">👤</div>
+        <h3>Atendimento Individualizado</h3>
+        <p>
+          Cada paciente recebe avaliação detalhada, plano terapêutico individual, monitoramento
+          contínuo e acompanhamento de evolução funcional. As sessões são realizadas individualmente,
+          garantindo atenção integral às necessidades de cada beneficiário.
+        </p>
+        <ul class="diff-bullets">
+          <li>Avaliação detalhada</li>
+          <li>Plano individual</li>
+          <li>Monitoramento contínuo</li>
+        </ul>
+      </div>
+
+      <div class="diff-card">
+        <img src="https://thiagobritoef-cloud.github.io/pelvic-funcional/pilates.jpg" alt="Sala de Pilates Pelvic" class="diff-card-photo">
+        <div class="diff-icon">🏃</div>
+        <h3>Sala de Fisioterapia Pélvica Funcional</h3>
+        <p>
+          Sala dedicada à simulação de atividades da vida diária — exercícios e treinamentos que
+          reproduzem situações reais do cotidiano. Aproxima o tratamento da realidade do paciente
+          e potencializa os resultados clínicos.
+        </p>
+        <ul class="diff-bullets">
+          <li>Evita perdas urinárias</li>
+          <li>Melhora estabilidade</li>
+          <li>Reduz recorrências</li>
+          <li>Independência funcional</li>
+        </ul>
+      </div>
+
+      <div class="diff-card wide">
+        <div class="photo-grid-2" style="margin-bottom:20px;">
+          <img src="https://thiagobritoef-cloud.github.io/pelvic-funcional/Kids.jpg" alt="Espaço Kids Pelvic">
+          <img src="https://thiagobritoef-cloud.github.io/pelvic-funcional/Consultorio%202.jpg" alt="Consultório 2 Pelvic">
+        </div>
+        <div class="diff-icon">🧒</div>
+        <h3>Espaço Kids — Cuidado que vai além da paciente</h3>
+        <p>
+          Muitas mulheres adiam ou interrompem tratamentos por não possuírem suporte para o cuidado dos filhos.
+          O Espaço Kids da Pelvic Funcional é um ambiente estruturado e seguro, acompanhado por profissional
+          dedicada exclusivamente a esse cuidado durante as sessões.
+        </p>
+        <p>
+          Mais do que um diferencial estrutural, essa iniciativa gera impacto direto nos indicadores
+          assistenciais da operadora.
+        </p>
+        <ul class="diff-bullets">
+          <li>Redução de faltas</li>
+          <li>Menor abandono terapêutico</li>
+          <li>Maior adesão ao tratamento</li>
+          <li>Melhor experiência no pós-parto</li>
+          <li>Assistência humanizada</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ BENEFITS FOR OPERATOR ══════════════ -->
+<div class="benefits-section">
+  <div style="max-width:780px; margin:0 auto;">
+    <div class="section-label">Por que credenciar a Pelvic</div>
+    <h2 class="section-title" style="color:white;">Benefícios concretos <span style="color:#F5A0B5;">para a operadora</span></h2>
+    <p class="section-lead">
+      Nosso modelo assistencial foi desenvolvido para gerar impacto positivo em toda a cadeia —
+      do beneficiário à operadora.
+    </p>
+
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-num">01</div>
+        <div class="benefit-icon">⚡</div>
+        <h3>Maior Eficiência Assistencial</h3>
+        <p>Atuação especializada permite diagnósticos mais precisos e tratamentos direcionados, reduzindo o tempo médio de recuperação.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">02</div>
+        <div class="benefit-icon">🔗</div>
+        <h3>Maior Adesão Terapêutica</h3>
+        <p>Estrutura diferenciada, Espaço Kids e acompanhamento próximo favorecem a continuidade e conclusão dos tratamentos.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">03</div>
+        <div class="benefit-icon">🔄</div>
+        <h3>Redução de Recorrências</h3>
+        <p>Abordagem funcional trata a causa das disfunções — não apenas os sintomas — reduzindo reincidências e novos ciclos de atendimento.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">04</div>
+        <div class="benefit-icon">😊</div>
+        <h3>Experiência Superior do Beneficiário</h3>
+        <p>Pacientes acolhidos, satisfeitos e com resultados consistentes fortalecem a percepção de qualidade da operadora.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">05</div>
+        <div class="benefit-icon">🌐</div>
+        <h3>Rede Credenciada Diferenciada</h3>
+        <p>A Pelvic Funcional amplia o acesso dos beneficiários a uma estrutura especializada que poucos prestadores no DF oferecem.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">06</div>
+        <div class="benefit-icon">💰</div>
+        <h3>Redução de Custos Assistenciais</h3>
+        <p>Menor recorrência de sintomas e maior adesão terapêutica reduzem o custo assistencial de médio e longo prazo para a operadora.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ AREAS ══════════════ -->
+<div class="page-header">
+  <div class="page-header-logo">PELVIC</div>
+  <div class="page-header-sub">Proposta de Credenciamento · 2026</div>
+</div>
+
+<div class="areas-section">
+  <div style="max-width:780px; margin:0 auto;">
+    <div class="section-label">Especialidades</div>
+    <h2 class="section-title">Áreas de <span>Atuação</span></h2>
+    <p class="section-lead">
+      Cobertura abrangente de todas as condições relacionadas à saúde pélvica feminina e masculina,
+      da prevenção à reabilitação.
+    </p>
+
+    <div class="areas-cloud">
+      <span class="area-tag primary">Fisioterapia Pélvica Feminina</span>
+      <span class="area-tag primary">Fisioterapia Pélvica Masculina</span>
+      <span class="area-tag primary">Incontinência Urinária</span>
+      <span class="area-tag secondary">Incontinência Fecal</span>
+      <span class="area-tag secondary">Dor Pélvica Crônica</span>
+      <span class="area-tag secondary">Disfunções Sexuais Femininas</span>
+      <span class="area-tag secondary">Disfunções Sexuais Masculinas</span>
+      <span class="area-tag primary">Gestação</span>
+      <span class="area-tag primary">Preparação para o Parto</span>
+      <span class="area-tag primary">Pós-Parto</span>
+      <span class="area-tag secondary">Diástase Abdominal</span>
+      <span class="area-tag secondary">Pós-Prostatectomia</span>
+      <span class="area-tag tertiary">Reabilitação Urológica</span>
+      <span class="area-tag tertiary">Reabilitação Colorretal</span>
+      <span class="area-tag tertiary">Pilates Terapêutico</span>
+      <span class="area-tag tertiary">Acupuntura</span>
+      <span class="area-tag tertiary">Consultoria em Amamentação</span>
+    </div>
+
+    <!-- PATIENT JOURNEY INFOGRAPHIC -->
+    <div style="margin-top:60px;">
+      <div style="font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--rose); margin-bottom:20px;">Jornada do Beneficiário</div>
+      <div class="infographic-row">
+        <div class="infographic-step">
+          <span class="inf-icon">📋</span>
+          <div class="inf-title">Avaliação Detalhada</div>
+          <div class="inf-desc">Diagnóstico funcional preciso e individualizado</div>
+        </div>
+        <div class="infographic-step">
+          <span class="inf-icon">📝</span>
+          <div class="inf-title">Plano Individual</div>
+          <div class="inf-desc">Protocolo terapêutico personalizado</div>
+        </div>
+        <div class="infographic-step">
+          <span class="inf-icon">🏥</span>
+          <div class="inf-title">Tratamento Especializado</div>
+          <div class="inf-desc">Sessões individuais com especialistas</div>
+        </div>
+        <div class="infographic-step">
+          <span class="inf-icon">📈</span>
+          <div class="inf-title">Monitoramento</div>
+          <div class="inf-desc">Acompanhamento contínuo da evolução</div>
+        </div>
+        <div class="infographic-step">
+          <span class="inf-icon">✅</span>
+          <div class="inf-title">Alta Funcional</div>
+          <div class="inf-desc">Resultados duradouros e baixa recorrência</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ DIGITAL PRESENCE ══════════════ -->
+<div class="digital-section">
+  <div style="max-width:780px; margin:0 auto;">
+    <div class="section-label">Presença Digital e Reputação</div>
+    <h2 class="section-title">Referência reconhecida <span>pela comunidade</span></h2>
+    <p class="section-lead">
+      A Pelvic Funcional mantém forte atuação em educação em saúde por meio de seus canais digitais,
+      auxiliando milhares de pessoas com orientações baseadas em evidências científicas.
+    </p>
+
+    <div class="digital-cards">
+      <div class="digital-card">
+        <span class="d-icon">⭐</span>
+        <h4>5,0</h4>
+        <p>Nota no Google</p>
+        <div class="google-rating">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p style="margin-top:8px; font-size:12px; color:var(--light-text);">+200 avaliações verificadas</p>
+      </div>
+      <div class="digital-card">
+        <span class="d-icon">📱</span>
+        <h4>+15.800</h4>
+        <p>Seguidores no Instagram</p>
+        <p style="margin-top:8px; font-size:12px; color:var(--light-text);">@pelvicfuncional</p>
+      </div>
+      <div class="digital-card">
+        <span class="d-icon">🌐</span>
+        <h4>Blog</h4>
+        <p>Portal especializado em saúde pélvica</p>
+        <p style="margin-top:8px; font-size:12px; color:var(--light-text);">pelvicfuncional.com.br</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ GALLERY ══════════════ -->
+<div class="gallery-section">
+  <div style="max-width:780px; margin:0 auto;">
+    <div class="section-label">Nossa Estrutura</div>
+    <h2 class="section-title">Conheça a <span>Pelvic Funcional</span></h2>
+    <p class="section-lead" style="margin-bottom:36px;">
+      Ambientes modernos e humanizados, projetados para proporcionar conforto, privacidade e excelência em cada atendimento.
+    </p>
+    <div class="gallery-grid">
+      <img src="https://thiagobritoef-cloud.github.io/pelvic-funcional/recepcao.jpg" alt="Recepção Pelvic Funcional">
+      <img src="https://thiagobritoef-cloud.github.io/pelvic-funcional/consultorio.jpg" alt="Consultório">
+      <img src="https://thiagobritoef-cloud.github.io/pelvic-funcional/Kids.jpg" alt="Espaço Kids">
+      <img src="https://thiagobritoef-cloud.github.io/pelvic-funcional/pilates.jpg" alt="Sala de Pilates">
+      <img src="https://thiagobritoef-cloud.github.io/pelvic-funcional/Consultorio%202.jpg" alt="Consultório 2">
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ CLOSING ══════════════ -->
+<div class="closing-section">
+  <div class="closing-inner">
+    <div class="section-label">Próximos Passos</div>
+    <h2 class="section-title">Construamos uma parceria <span>sólida e duradoura</span></h2>
+    <p class="closing-text">
+      A Pelvic Funcional acredita que uma assistência de qualidade deve unir conhecimento técnico,
+      acolhimento humano e resultados clínicos. Nosso compromisso é oferecer aos beneficiários da
+      operadora um atendimento especializado, seguro e eficiente, contribuindo para uma jornada
+      terapêutica de excelência.
+    </p>
+    <p class="closing-text" style="margin-bottom:50px;">
+      Estamos à disposição para apresentar nossa estrutura, equipe técnica, indicadores operacionais
+      e metodologia assistencial em reunião presencial ou virtual.
+    </p>
+
+    <div class="contact-block">
+      <h3>Priscila Hermínio Pschiski Neves</h3>
+      <div class="rep-title">Representante Legal · Clínica Pelvic Funcional</div>
+
+      <div class="contact-grid">
+        <div class="contact-item">
+          <div class="c-label">Telefone</div>
+          <div class="c-value">(61) 98132-1682</div>
+        </div>
+        <div class="contact-item">
+          <div class="c-label">E-mail</div>
+          <div class="c-value">atendimento.clinicapelvic@gmail.com</div>
+        </div>
+        <div class="contact-item">
+          <div class="c-label">Website</div>
+          <div class="c-value">pelvicfuncional.com.br</div>
+        </div>
+      </div>
+
+      <div class="contact-divider"></div>
+
+      <div style="margin-bottom:20px;">
+        <div class="c-label" style="color:rgba(255,255,255,0.5); margin-bottom:8px;">Endereço</div>
+        <div style="font-size:13px; color:rgba(255,255,255,0.8);">SHCSW Centro Clínico Sudoeste, Blocos 3/4/5, S/N — Salas 257, 259 e 261 — Brasília · DF · CEP 70.673-416</div>
+      </div>
+
+      <div style="margin-bottom:20px;">
+        <div class="c-label" style="color:rgba(255,255,255,0.5); margin-bottom:8px;">CNPJ</div>
+        <div style="font-size:13px; color:rgba(255,255,255,0.8);">35.817.690/0001-50</div>
+      </div>
+
+      <div class="contact-divider"></div>
+
+      <div class="contact-bottom">
+        <div class="city">Brasília · DF · 2026</div>
+        <div style="font-size:13px; color:rgba(255,255,255,0.5); font-style:italic;">Será uma satisfação construir esta parceria.</div>
+        <div class="year">2026</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
