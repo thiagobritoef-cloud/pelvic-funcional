@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Proposta de Credenciamento — Pelvic Funcional</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -1572,6 +1573,65 @@
     </div>
   </div>
 </div>
+
+<!-- ── BOTÃO DOWNLOAD PDF ── -->
+<style>
+  #btn-pdf {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 9999;
+    background: linear-gradient(135deg, #C43A6B 0%, #8B1A45 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 26px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(196,58,107,0.45);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  #btn-pdf:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(196,58,107,0.55); }
+  #btn-pdf:active { transform: translateY(0); }
+  #btn-pdf svg { width: 18px; height: 18px; fill: white; flex-shrink: 0; }
+  @media print { #btn-pdf { display: none !important; } }
+</style>
+
+<button id="btn-pdf" onclick="gerarPDF()">
+  <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+  Baixar PDF
+</button>
+
+<script>
+function gerarPDF() {
+  const btn = document.getElementById('btn-pdf');
+  btn.textContent = 'Gerando…';
+  btn.disabled = true;
+
+  const opt = {
+    margin:       0,
+    filename:     'Proposta_Credenciamento_Pelvic_Funcional.pdf',
+    image:        { type: 'jpeg', quality: 0.95 },
+    html2canvas:  { scale: 2, useCORS: true, logging: false },
+    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+    pagebreak:    { mode: ['avoid-all', 'css'] }
+  };
+
+  html2pdf()
+    .set(opt)
+    .from(document.body)
+    .save()
+    .then(() => {
+      btn.innerHTML = '<svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:white"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> Baixar PDF';
+      btn.disabled = false;
+    });
+}
+</script>
 
 </body>
 </html>
