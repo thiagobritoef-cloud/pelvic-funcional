@@ -1495,8 +1495,187 @@
         <p style="margin-top:8px; font-size:12px; color:var(--light-text);">pelvicfuncional.com.br</p>
       </div>
     </div>
+
+    <!-- Instagram + Spotify -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+      <a href="https://www.instagram.com/pelvicfuncional/" target="_blank" style="text-decoration:none;">
+        <div class="digital-card" style="border:2px solid #E1306C22; background:linear-gradient(135deg,#fff5f8,#fff); cursor:pointer;">
+          <span style="font-size:32px; margin-bottom:12px; display:block;">📸</span>
+          <h4 style="color:#E1306C; font-size:22px;">+15.000</h4>
+          <p style="font-weight:600; color:var(--dark); margin-bottom:4px;">Seguidores</p>
+          <p style="font-size:13px; color:#E1306C; font-weight:600;">@pelvicfuncional</p>
+          <p style="font-size:11px; color:var(--light-text); margin-top:6px;">Conteúdo educativo sobre saúde pélvica</p>
+        </div>
+      </a>
+      <a href="https://open.spotify.com/show/4ccKj1IsYcQV0K8Iu19zKZ" target="_blank" style="text-decoration:none;">
+        <div class="digital-card" style="border:2px solid #1DB95422; background:linear-gradient(135deg,#f0fff4,#fff); cursor:pointer;">
+          <span style="font-size:32px; margin-bottom:12px; display:block;">🎙️</span>
+          <h4 style="color:#1DB954; font-size:22px;">Pelvicast</h4>
+          <p style="font-weight:600; color:var(--dark); margin-bottom:4px;">Podcast no Spotify</p>
+          <p style="font-size:13px; color:#1DB954; font-weight:600;">open.spotify.com</p>
+          <p style="font-size:11px; color:var(--light-text); margin-top:6px;">Conteúdo científico sobre o assoalho pélvico</p>
+        </div>
+      </a>
+    </div>
   </div>
 </div>
+
+<!-- ══════════════ DEPOIMENTOS ══════════════ -->
+<style>
+  .testimonials-section {
+    padding: 80px 60px;
+    background: var(--rose-ultra-pale);
+  }
+  .carousel-wrap { position: relative; overflow: hidden; }
+  .carousel-track {
+    display: flex;
+    transition: transform 0.45s cubic-bezier(.4,0,.2,1);
+    will-change: transform;
+  }
+  .testimonial-card {
+    min-width: 100%;
+    background: white;
+    border-radius: 24px;
+    padding: 40px 44px;
+    border: 1px solid var(--border);
+    position: relative;
+    box-shadow: 0 4px 24px rgba(196,58,107,0.07);
+  }
+  .t-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    color: var(--rose);
+    line-height: 0.6;
+    margin-bottom: 20px;
+    display: block;
+    opacity: 0.3;
+  }
+  .t-text {
+    font-size: 17px;
+    color: var(--dark);
+    line-height: 1.8;
+    font-style: italic;
+    margin-bottom: 28px;
+  }
+  .t-author { display: flex; align-items: center; gap: 14px; }
+  .t-avatar {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--rose), #8B1A45);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 700; color: white;
+    font-family: 'Playfair Display', serif; flex-shrink: 0;
+  }
+  .t-name { font-weight: 700; color: var(--dark); font-size: 15px; }
+  .t-meta { font-size: 12px; color: var(--light-text); margin-top: 2px; }
+  .t-stars { color: #FFC107; font-size: 14px; margin-top: 4px; }
+  .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 28px; }
+  .carousel-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(196,58,107,0.2);
+    border: none; cursor: pointer; padding: 0;
+    transition: background 0.25s, transform 0.25s;
+  }
+  .carousel-dot.active { background: var(--rose); transform: scale(1.3); }
+  .carousel-arrows { display: flex; justify-content: center; gap: 12px; margin-top: 20px; }
+  .c-arrow {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: white; border: 2px solid var(--border);
+    cursor: pointer; font-size: 18px; color: var(--rose);
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+  .c-arrow:hover { background: var(--rose); color: white; border-color: var(--rose); }
+  @media (max-width: 768px) {
+    .testimonials-section { padding: 56px 24px; }
+    .testimonial-card { padding: 28px 24px; }
+    .t-text { font-size: 15px; }
+  }
+</style>
+
+<div class="testimonials-section">
+  <div style="max-width:780px; margin:0 auto;">
+    <div class="section-label">O Que Dizem Nossos Pacientes</div>
+    <h2 class="section-title">Resultados reais. <span>Vidas transformadas.</span></h2>
+    <p class="section-lead" style="margin-bottom:36px;">
+      Mais de 1.000 pacientes já experimentaram a diferença de um tratamento verdadeiramente especializado.
+    </p>
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="testimonial-card">
+          <span class="t-quote">"</span>
+          <p class="t-text">Depois de 3 anos convivendo com incontinência urinária, em apenas 2 meses de tratamento na Pelvic Funcional recuperei totalmente minha qualidade de vida. Voltei a correr, rir e viver sem medo. É uma equipe que realmente entende o que faz.</p>
+          <div class="t-author">
+            <div class="t-avatar">A</div>
+            <div><div class="t-name">Ana Paula M.</div><div class="t-meta">42 anos · Paciente desde 2023</div><div class="t-stars">★★★★★</div></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <span class="t-quote">"</span>
+          <p class="t-text">A Pelvic Funcional transformou minha gestação. O pré-natal pélvico me preparou de um jeito que eu nem sabia que era possível. Tive um parto tranquilo e uma recuperação muito mais rápida. Recomendo de olhos fechados para todas as gestantes!</p>
+          <div class="t-author">
+            <div class="t-avatar">J</div>
+            <div><div class="t-name">Juliana F.</div><div class="t-meta">31 anos · Pré-natal Pélvico</div><div class="t-stars">★★★★★</div></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <span class="t-quote">"</span>
+          <p class="t-text">Nunca imaginei que fisioterapia pélvica poderia fazer tanta diferença na minha vida. Voltei a praticar exercícios sem dor, sem perder urina e com muito mais disposição. O ambiente é acolhedor e as profissionais são excepcionais.</p>
+          <div class="t-author">
+            <div class="t-avatar">C</div>
+            <div><div class="t-name">Carla R.</div><div class="t-meta">54 anos · Tratamento pós-menopausa</div><div class="t-stars">★★★★★</div></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <span class="t-quote">"</span>
+          <p class="t-text">Fui atendido na Pelvic Men com total discrição e profissionalismo. Em 6 semanas de tratamento tive resultados que não consegui em anos tentando outras abordagens. A equipe masculina é muito capacitada e o ambiente é muito confortável.</p>
+          <div class="t-author">
+            <div class="t-avatar">R</div>
+            <div><div class="t-name">Ricardo A.</div><div class="t-meta">41 anos · Pelvic Men</div><div class="t-stars">★★★★★</div></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <span class="t-quote">"</span>
+          <p class="t-text">Após minha cirurgia ginecológica, a reabilitação pélvica na Pelvic Funcional foi fundamental para minha recuperação. Atendimento humanizado, pontual e com explicações claras em cada etapa. Me sinto em boas mãos sempre!</p>
+          <div class="t-author">
+            <div class="t-avatar">M</div>
+            <div><div class="t-name">Mariana S.</div><div class="t-meta">38 anos · Reabilitação pós-cirúrgica</div><div class="t-stars">★★★★★</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-arrows">
+      <button class="c-arrow" onclick="moveCarousel(-1)">←</button>
+      <button class="c-arrow" onclick="moveCarousel(1)">→</button>
+    </div>
+    <div class="carousel-dots" id="carouselDots"></div>
+  </div>
+</div>
+<script>
+(function(){
+  const track = document.getElementById('carouselTrack');
+  const dotsContainer = document.getElementById('carouselDots');
+  const total = track.children.length;
+  let current = 0;
+  for(let i=0; i<total; i++){
+    const d = document.createElement('button');
+    d.className = 'carousel-dot' + (i===0?' active':'');
+    d.onclick = () => goTo(i);
+    dotsContainer.appendChild(d);
+  }
+  function goTo(n){
+    current = (n + total) % total;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    document.querySelectorAll('.carousel-dot').forEach((d,i)=>{
+      d.classList.toggle('active', i===current);
+    });
+  }
+  window.moveCarousel = (dir) => goTo(current + dir);
+  setInterval(() => goTo(current + 1), 5000);
+})();
+</script>
+
+
 
 <!-- ══════════════ GALLERY ══════════════ -->
 <div class="gallery-section">
@@ -1533,7 +1712,7 @@
     </p>
 
     <div class="contact-block">
-      <h3>Priscila Hermínio Pschiski Neves</h3>
+      <h3>Priscila Hermínio De Brito</h3>
       <div class="rep-title">Representante Legal · Clínica Pelvic Funcional</div>
 
       <div class="contact-grid">
